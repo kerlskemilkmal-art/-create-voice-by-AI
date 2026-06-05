@@ -1,64 +1,56 @@
-"""Popular unsupervised clustering algorithms."""
+"""Evaluation metrics for cluster analysis results.
+
+- Supervised evaluation uses a ground truth class values for each sample.
+- Unsupervised evaluation does not use ground truths and measures the "quality" of the
+  model itself.
+"""
 
 # Authors: The scikit-learn developers
 # SPDX-License-Identifier: BSD-3-Clause
 
-from sklearn.cluster._affinity_propagation import (
-    AffinityPropagation,
-    affinity_propagation,
+from sklearn.metrics.cluster._bicluster import consensus_score
+from sklearn.metrics.cluster._supervised import (
+    adjusted_mutual_info_score,
+    adjusted_rand_score,
+    completeness_score,
+    contingency_matrix,
+    entropy,
+    expected_mutual_information,
+    fowlkes_mallows_score,
+    homogeneity_completeness_v_measure,
+    homogeneity_score,
+    mutual_info_score,
+    normalized_mutual_info_score,
+    pair_confusion_matrix,
+    rand_score,
+    v_measure_score,
 )
-from sklearn.cluster._agglomerative import (
-    AgglomerativeClustering,
-    FeatureAgglomeration,
-    linkage_tree,
-    ward_tree,
+from sklearn.metrics.cluster._unsupervised import (
+    calinski_harabasz_score,
+    davies_bouldin_score,
+    silhouette_samples,
+    silhouette_score,
 )
-from sklearn.cluster._bicluster import SpectralBiclustering, SpectralCoclustering
-from sklearn.cluster._birch import Birch
-from sklearn.cluster._bisect_k_means import BisectingKMeans
-from sklearn.cluster._dbscan import DBSCAN, dbscan
-from sklearn.cluster._hdbscan.hdbscan import HDBSCAN
-from sklearn.cluster._kmeans import KMeans, MiniBatchKMeans, k_means, kmeans_plusplus
-from sklearn.cluster._mean_shift import (
-    MeanShift,
-    estimate_bandwidth,
-    get_bin_seeds,
-    mean_shift,
-)
-from sklearn.cluster._optics import (
-    OPTICS,
-    cluster_optics_dbscan,
-    cluster_optics_xi,
-    compute_optics_graph,
-)
-from sklearn.cluster._spectral import SpectralClustering, spectral_clustering
 
 __all__ = [
-    "DBSCAN",
-    "HDBSCAN",
-    "OPTICS",
-    "AffinityPropagation",
-    "AgglomerativeClustering",
-    "Birch",
-    "BisectingKMeans",
-    "FeatureAgglomeration",
-    "KMeans",
-    "MeanShift",
-    "MiniBatchKMeans",
-    "SpectralBiclustering",
-    "SpectralClustering",
-    "SpectralCoclustering",
-    "affinity_propagation",
-    "cluster_optics_dbscan",
-    "cluster_optics_xi",
-    "compute_optics_graph",
-    "dbscan",
-    "estimate_bandwidth",
-    "get_bin_seeds",
-    "k_means",
-    "kmeans_plusplus",
-    "linkage_tree",
-    "mean_shift",
-    "spectral_clustering",
-    "ward_tree",
+    "adjusted_mutual_info_score",
+    "adjusted_rand_score",
+    "calinski_harabasz_score",
+    "completeness_score",
+    "consensus_score",
+    "contingency_matrix",
+    "davies_bouldin_score",
+    # TODO(1.10): Remove
+    "entropy",
+    "expected_mutual_information",
+    "fowlkes_mallows_score",
+    "homogeneity_completeness_v_measure",
+    "homogeneity_score",
+    "mutual_info_score",
+    "normalized_mutual_info_score",
+    "pair_confusion_matrix",
+    "rand_score",
+    "silhouette_samples",
+    "silhouette_score",
+    "v_measure_score",
 ]
